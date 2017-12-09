@@ -20,10 +20,10 @@
  * SOFTWARE.
  */
 
-package net.smoofyuniverse.common.logger.slf4j;
+package net.smoofyuniverse.logger.slf4j;
 
-import net.smoofyuniverse.common.logger.core.ILogger;
-import net.smoofyuniverse.common.logger.core.LogLevel;
+import net.smoofyuniverse.logger.core.ILogger;
+import net.smoofyuniverse.logger.core.LogLevel;
 import org.slf4j.Logger;
 import org.slf4j.Marker;
 

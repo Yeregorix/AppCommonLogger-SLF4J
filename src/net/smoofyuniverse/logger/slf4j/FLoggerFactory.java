@@ -20,9 +20,9 @@
  * SOFTWARE.
  */
 
-package net.smoofyuniverse.common.logger.slf4j;
+package net.smoofyuniverse.logger.slf4j;
 
-import net.smoofyuniverse.common.logger.core.LoggerFactory;
+import net.smoofyuniverse.logger.core.LoggerFactory;
 import org.slf4j.ILoggerFactory;
 
 import java.util.Map;

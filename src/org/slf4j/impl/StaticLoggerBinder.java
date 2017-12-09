@@ -22,7 +22,7 @@
 
 package org.slf4j.impl;
 
-import net.smoofyuniverse.common.logger.slf4j.FLoggerFactory;
+import net.smoofyuniverse.logger.slf4j.FLoggerFactory;
 import org.slf4j.ILoggerFactory;
 
 public class StaticLoggerBinder {
