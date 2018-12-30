@@ -41,7 +41,7 @@ public class StaticLoggerBinder {
 		return CLASS_NAME;
 	}
 
-	public static final StaticLoggerBinder getSingleton() {
+	public static StaticLoggerBinder getSingleton() {
 		return SINGLETON;
 	}
 }
