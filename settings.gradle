@@ -21,6 +21,3 @@
  */
 
 rootProject.name = 'SmoofyLogger-SLF4J'
-
-include ':SmoofyLogger'
-project(':SmoofyLogger').projectDir = new File("../SmoofyLogger")

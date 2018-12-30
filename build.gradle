@@ -31,9 +31,10 @@ targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
-    compile project(':SmoofyLogger')
+    compile 'net.smoofyuniverse:SmoofyLogger:1.0.0'
     compile 'org.slf4j:slf4j-api:1.7.25'
 }
