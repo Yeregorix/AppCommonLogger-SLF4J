@@ -27,7 +27,7 @@ import net.smoofyuniverse.logger.core.LogLevel;
 import org.slf4j.Logger;
 import org.slf4j.Marker;
 
-import static java.lang.String.format;
+import java.util.function.Supplier;
 
 public class FLogger implements Logger {
 	private ILogger delegate;
@@ -57,17 +57,17 @@ public class FLogger implements Logger {
 
 	@Override
 	public void trace(String format, Object arg) {
-		this.delegate.trace(format(format, arg));
+		this.delegate.trace(f(format, arg));
 	}
 
 	@Override
 	public void trace(String format, Object arg1, Object arg2) {
-		this.delegate.trace(format(format, arg1, arg2));
+		this.delegate.trace(f(format, arg1, arg2));
 	}
 
 	@Override
 	public void trace(String format, Object... arguments) {
-		this.delegate.trace(format(format, arguments));
+		this.delegate.trace(f(format, arguments));
 	}
 
 	@Override
@@ -117,17 +117,17 @@ public class FLogger implements Logger {
 
 	@Override
 	public void debug(String format, Object arg) {
-		this.delegate.debug(format(format, arg));
+		this.delegate.debug(f(format, arg));
 	}
 
 	@Override
 	public void debug(String format, Object arg1, Object arg2) {
-		this.delegate.debug(format(format, arg1, arg2));
+		this.delegate.debug(f(format, arg1, arg2));
 	}
 
 	@Override
 	public void debug(String format, Object... arguments) {
-		this.delegate.debug(format(format, arguments));
+		this.delegate.debug(f(format, arguments));
 	}
 
 	@Override
@@ -177,17 +177,17 @@ public class FLogger implements Logger {
 
 	@Override
 	public void info(String format, Object arg) {
-		this.delegate.info(format(format, arg));
+		this.delegate.info(f(format, arg));
 	}
 
 	@Override
 	public void info(String format, Object arg1, Object arg2) {
-		this.delegate.info(format(format, arg1, arg2));
+		this.delegate.info(f(format, arg1, arg2));
 	}
 
 	@Override
 	public void info(String format, Object... arguments) {
-		this.delegate.info(format(format, arguments));
+		this.delegate.info(f(format, arguments));
 	}
 
 	@Override
@@ -237,17 +237,17 @@ public class FLogger implements Logger {
 
 	@Override
 	public void warn(String format, Object arg) {
-		this.delegate.warn(format(format, arg));
+		this.delegate.warn(f(format, arg));
 	}
 
 	@Override
 	public void warn(String format, Object... arguments) {
-		this.delegate.warn(format(format, arguments));
+		this.delegate.warn(f(format, arguments));
 	}
 
 	@Override
 	public void warn(String format, Object arg1, Object arg2) {
-		this.delegate.warn(format(format, arg1, arg2));
+		this.delegate.warn(f(format, arg1, arg2));
 	}
 
 	@Override
@@ -267,17 +267,17 @@ public class FLogger implements Logger {
 
 	@Override
 	public void warn(Marker marker, String format, Object arg) {
-		this.delegate.warn(format(format, arg));
+		this.delegate.warn(f(format, arg));
 	}
 
 	@Override
 	public void warn(Marker marker, String format, Object arg1, Object arg2) {
-		this.delegate.warn(format(format, arg1, arg2));
+		this.delegate.warn(f(format, arg1, arg2));
 	}
 
 	@Override
 	public void warn(Marker marker, String format, Object... arguments) {
-		this.delegate.warn(format(format, arguments));
+		this.delegate.warn(f(format, arguments));
 	}
 
 	@Override
@@ -297,17 +297,17 @@ public class FLogger implements Logger {
 
 	@Override
 	public void error(String format, Object arg) {
-		this.delegate.error(format(format, arg));
+		this.delegate.error(f(format, arg));
 	}
 
 	@Override
 	public void error(String format, Object arg1, Object arg2) {
-		this.delegate.error(format(format, arg1, arg2));
+		this.delegate.error(f(format, arg1, arg2));
 	}
 
 	@Override
 	public void error(String format, Object... arguments) {
-		this.delegate.error(format(format, arguments));
+		this.delegate.error(f(format, arguments));
 	}
 
 	@Override
@@ -343,5 +343,9 @@ public class FLogger implements Logger {
 	@Override
 	public void error(Marker marker, String msg, Throwable t) {
 		error(msg, t);
+	}
+
+	private static Supplier<String> f(String format, Object... args) {
+		return () -> String.format(format, args);
 	}
 }
