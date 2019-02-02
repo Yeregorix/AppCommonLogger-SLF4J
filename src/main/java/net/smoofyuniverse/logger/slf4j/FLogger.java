@@ -346,6 +346,6 @@ public class FLogger implements Logger {
 	}
 
 	private static Supplier<String> f(String format, Object... args) {
-		return () -> String.format(format, args);
+		return () -> Formatter.format(format, args);
 	}
 }
