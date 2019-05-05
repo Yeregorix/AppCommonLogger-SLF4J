@@ -33,6 +33,8 @@ public class FLogger implements Logger {
 	private ILogger delegate;
 
 	public FLogger(ILogger delegate) {
+		if (delegate == null)
+			throw new IllegalArgumentException("delegate");
 		this.delegate = delegate;
 	}
 

@@ -35,6 +35,8 @@ public class FLoggerFactory implements ILoggerFactory {
 	private LoggerFactory delegate;
 
 	public FLoggerFactory(LoggerFactory delegate) {
+		if (delegate == null)
+			throw new IllegalArgumentException("delegate");
 		this.delegate = delegate;
 	}
 
