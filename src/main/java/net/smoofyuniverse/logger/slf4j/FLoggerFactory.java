@@ -31,8 +31,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class FLoggerFactory implements ILoggerFactory {
 	private static FLoggerFactory defaultFactory;
 
-	private Map<String, FLogger> loggers = new ConcurrentHashMap<>();
-	private LoggerFactory delegate;
+	private final Map<String, FLogger> loggers = new ConcurrentHashMap<>();
+	private final LoggerFactory delegate;
 
 	public FLoggerFactory(LoggerFactory delegate) {
 		if (delegate == null)

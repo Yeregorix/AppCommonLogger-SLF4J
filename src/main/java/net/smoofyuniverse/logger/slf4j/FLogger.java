@@ -30,7 +30,7 @@ import org.slf4j.Marker;
 import java.util.function.Supplier;
 
 public class FLogger implements Logger {
-	private ILogger delegate;
+	private final ILogger delegate;
 
 	public FLogger(ILogger delegate) {
 		if (delegate == null)
