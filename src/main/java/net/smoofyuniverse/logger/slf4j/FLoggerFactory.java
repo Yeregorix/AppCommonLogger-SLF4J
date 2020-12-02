@@ -46,12 +46,11 @@ public class FLoggerFactory implements ILoggerFactory {
 
 	@Override
 	public FLogger getLogger(String name) {
-		FLogger l = this.loggers.get(name);
-		if (l == null) {
-			l = new FLogger(this.delegate.provideLogger(name));
-			this.loggers.put(name, l);
-		}
-		return l;
+		return this.loggers.computeIfAbsent(name, this::createLogger);
+	}
+
+	protected FLogger createLogger(String name) {
+		return new FLogger(this.delegate.provideLogger(name));
 	}
 
 	public static FLoggerFactory getDefaultFactory() {
