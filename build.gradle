@@ -42,7 +42,7 @@ repositories {
 
 dependencies {
     compile 'net.smoofyuniverse:smoofylogger:1.2.0-SNAPSHOT'
-    compile 'org.slf4j:slf4j-api:1.7.25'
+    compile 'org.slf4j:slf4j-api:1.7.30'
 }
 
 task javadocJar(type: Jar) {

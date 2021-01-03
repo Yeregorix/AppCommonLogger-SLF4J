@@ -27,9 +27,9 @@ import net.smoofyuniverse.logger.core.Logger;
 import java.util.HashMap;
 import java.util.Map;
 
-// Optimized version of org.slf4j.helpers.MessageFormatter
+// Modified version of org.slf4j.helpers.MessageFormatter
 public class Formatter {
-	private static final Logger logger = FLoggerFactory.getDefaultFactory().getDelegate().provideLogger("Formatter");
+	private static final Logger logger = Logger.get("Formatter");
 
 	private static final String DELIM_STR = "{}";
 	private static final char DELIM_START = '{', DELIM_STOP = '}', ESCAPE_CHAR = '\\';

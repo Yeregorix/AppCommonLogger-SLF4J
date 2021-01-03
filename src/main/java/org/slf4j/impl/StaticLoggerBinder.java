@@ -34,7 +34,7 @@ public class StaticLoggerBinder {
 	private StaticLoggerBinder() {}
 
 	public ILoggerFactory getLoggerFactory() {
-		return FLoggerFactory.getDefaultFactory();
+		return FLoggerFactory.DEFAULT_IMPL;
 	}
 
 	public String getLoggerFactoryClassStr() {

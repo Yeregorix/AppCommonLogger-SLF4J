@@ -22,6 +22,7 @@
 
 package net.smoofyuniverse.logger.slf4j;
 
+import net.smoofyuniverse.logger.core.DefaultImpl;
 import net.smoofyuniverse.logger.core.LoggerFactory;
 import org.slf4j.ILoggerFactory;
 
@@ -29,7 +30,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class FLoggerFactory implements ILoggerFactory {
-	private static FLoggerFactory defaultFactory;
+	public static FLoggerFactory DEFAULT_IMPL = new FLoggerFactory(DefaultImpl.FACTORY);
 
 	private final Map<String, FLogger> loggers = new ConcurrentHashMap<>();
 	private final LoggerFactory delegate;
@@ -51,17 +52,5 @@ public class FLoggerFactory implements ILoggerFactory {
 
 	protected FLogger createLogger(String name) {
 		return new FLogger(this.delegate.provideLogger(name));
-	}
-
-	public static FLoggerFactory getDefaultFactory() {
-		if (defaultFactory == null)
-			throw new IllegalStateException("Default factory not provided");
-		return defaultFactory;
-	}
-
-	public static void setDefaultFactory(FLoggerFactory factory) {
-		if (defaultFactory != null)
-			throw new IllegalStateException("Default factory already provided");
-		defaultFactory = factory;
 	}
 }
